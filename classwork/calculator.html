@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style>
+		    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      text-align: center;
+      background-color: black; 
+    }
+    .calculator {
+      display: inline-block;
+      padding: 70px;
+      border: 1px solid ;
+      border-radius: 8px;
+      background-color: yellow;
+       
+    }
+
+    input, select, button {
+      margin: 4	px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      height: 24px;
+    }
+	</style>
+</head>
+<body>
+	
+<div class="calculator">
+	<h1 style="color: red;"><b>Calculator</b></h1><br>
+	<input style="color: blue;" type="number" id="num1" autofocus placeholder="Enter first number">
+	<select id="oper">
+	  <option value="add">+</option>
+      <option value="sub">-</option>
+      <option value="mul">×</option>
+      <option value="div">÷</option>
+	</select>
+    <input style="color: blue;"type="number" id="num2" placeholder="Enter second number"><br><br>
+
+    <button onclick="calculate()">=</button>
+    <button onclick="clearCalc()">C</button>
+
+    <div id="result"></div>
+</div>
+
+	<script>
+		function clearCalc() {
+  document.getElementById("num1").value = "";
+  document.getElementById("num2").value = "";
+  document.getElementById("result").innerHTML = "";
+  document.getElementById("num1").focus();
+}
+
+		function add(a, b) {
+			return a + b;
+		}
+
+		function sub(a, b) {
+			return a - b;
+		}
+
+		function mul(a, b) {
+			return a * b;
+		}
+
+		function div(a, b) {
+			 if (b === 0) {
+        return "Error";
+      }
+      return a / b;
+		}
+
+		function printresult(value) {
+			document.getElementById('result').innerHTML = "Result is: " + value;
+		}
+
+		function calculate() {
+			let num1 = Number(document.getElementById('num1').value);
+			let num2 = Number(document.getElementById('num2').value);
+			let oper = document.getElementById('oper').value;
+			let result;
+
+			if (oper === "add") {
+				result = add(num1, num2);
+			} else if (oper === "sub") {
+				result = sub(num1, num2);
+			} else if (oper === "mul") {
+				result = mul(num1, num2);
+			} else if (oper === "div") {
+				result = div(num1, num2);
+			}
+
+			printresult(result);
+		}
+	</script>
+</body>
+</html>
