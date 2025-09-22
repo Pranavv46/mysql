@@ -25,11 +25,11 @@ where course = 'Data Science';
 
 update students
 set status_ = 'Inactive',
-set fees_paid = fees_paid - 500
+ fees_paid = fees_paid - 500
 where student_id = 3;
 
 delete from students
 where student_id = 3;
 
 delete from students
-where status = 'Inactive';
+where status_ = 'Inactive';
