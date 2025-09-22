@@ -16,7 +16,7 @@ select * from students
 where fees_paid > 5000;
 
 update students
-set status ='Active'
+set status_ ='Active'
 where course = 'Web Development';
 
 update students
